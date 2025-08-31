@@ -1,0 +1,1 @@
+//no borrar archivo, es para que en los archivos CSS me reconozca las funciones y reglas de tailwind
