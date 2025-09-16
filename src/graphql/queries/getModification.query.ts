@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const get_modifications = gql(`
+export const get_modification = gql(`
 query getModification($args: FindModificationById!) {
   getModification(args: $args) {
     	id

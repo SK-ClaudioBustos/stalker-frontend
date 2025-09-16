@@ -1,47 +1,21 @@
-"use client";
-import { Juego, TipoEnum, useGetModificationsQuery } from "@generated";
-import Image from "next/image";
-import ImageWithBlur from "../ui/ImageWithBlur";
-import { Suspense } from "react";
+import { useState } from "react";
+import { Modifications } from "../ui/Modifications";
+import { NotificationListener } from "../ui/NotificationListener";
 
 export default function LandingPage() {
-  const { data, loading, error } = useGetModificationsQuery({
-    variables: {
-      params: {
-        juego: Juego.ShadowOfChernobyl,
-        tipo: TipoEnum.VanillaMod,
-      },
-    },
-  });
+  const [showModifications, setShowModifications] = useState(false);
 
-  if (loading) {
-    return <h1 className="text-green-500">Cargando...</h1>;
-  }
-
-  if (error) {
-    return <h1 className="text-red-500">{error.message}</h1>;
+  const handleShowModifications = () => {
+    setShowModifications(!showModifications);
   }
 
   return (
     <main>
-      {data?.getModifications.modifications.map(
-        ({ id, portadaPath, titulo }) => {
-          const srcImg = `/img/${portadaPath}/portada.webp`;
-          console.log(srcImg);
-          return (
-            <article key={id} className="bg-amber-300 w-fit">
-              <Suspense fallback={<span className="text-red-500">CARGANDO IMAGEN</span>}>
-                <ImageWithBlur
-                  width={250}
-                  height={300}
-                  alt={`Imagen de la modificacion ${titulo}`}
-                  src={srcImg}
-                />
-              </Suspense>
-            </article>
-          );
-        }
-      )}
+      <NotificationListener />
+      <button className="bg-blue-600" onClick={handleShowModifications}>Alternar</button>
+      {
+        showModifications && <Modifications />
+      }
     </main>
   );
 }
