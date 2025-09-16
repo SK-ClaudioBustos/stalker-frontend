@@ -1,8 +1,5 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
-import { loadEnvConfig } from '@next/env'
- 
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
+import './envConfig.ts';
 
 const config: CodegenConfig = {
   overwrite: true,
