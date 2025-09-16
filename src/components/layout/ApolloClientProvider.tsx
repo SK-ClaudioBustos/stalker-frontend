@@ -6,12 +6,12 @@ import { createClient } from "graphql-ws";
 import { PropsWithChildren } from "react";
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:3000/graphql",
+  uri: process.env.NEXT_PUBLIC_SCHEMA_URL,
 });
 
 const wsLink = new GraphQLWsLink(
   createClient({
-    url: "ws://localhost:3000/graphql",
+    url: process.env.NEXT_PUBLIC_WS_URL || "",
   })
 );
 const splitLink = split(
