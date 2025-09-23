@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.flex-center {
+    @apply flex justify-center items-center;
+}
+
+body {
+    background-color: #fff;
+    color: #727272;
+}

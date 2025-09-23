@@ -1,6 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
 import { AppProvider } from "@/components/layout/AppProvider";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/layout/Header";
+
+const fontFamily = Inter({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Stalker Wiki Mods Traducidos",
@@ -14,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className={fontFamily.className}>
+        <Header/>
         <AppProvider>{children}</AppProvider>
       </body>
     </html>
