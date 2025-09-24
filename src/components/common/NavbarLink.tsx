@@ -7,7 +7,7 @@ interface Props {
 
 export const NavbarLink = ({ label, url }: Props) => {
   return (
-    <Link className="hover:text-amber-500" href={url} title={`Ir a la seccion ${label}`}>
+    <Link className="hover:text-amber-500 xl:text-xl md:text-base text-xs" href={url} title={`Ir a la seccion ${label}`}>
       {label}
     </Link>
   );
