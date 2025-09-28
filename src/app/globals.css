@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 .flex-center {
-    @apply flex justify-center items-center;
+  @apply flex justify-center items-center;
+}
+
+.main-padding {
+  @apply px-[12vw] py-[5vw];
 }
 
 @theme {
-    --color-custom-orange: #FFAE52;
+  --color-custom-orange: #ffae52;
 }
 
 body {
-    background-color: #fff;
-    color: #727272;
+  background-color: #fff;
+  color: #727272;
 }

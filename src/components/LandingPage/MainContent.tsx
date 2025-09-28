@@ -3,9 +3,9 @@ import { CharacterImage } from "@/components/LandingPage/CharacterImage";
 
 export const MainContent = () => {
   return (
-    <>
+    <section className="flex justify-between items-center main-padding">
       <div className="flex flex-col gap-20">
-        <div className="flex flex-col gap-7">
+        <article className="flex flex-col gap-7">
           <div className="w-full">
             <h1 className="font-light text-4xl mb-0">DESCUBRE MODS</h1>
             <h1 className="font-extrabold text-5xl">DE STALKER EN ESPAÑOL</h1>
@@ -14,12 +14,12 @@ export const MainContent = () => {
             Desde esta web comunitaria podras descubrir noticias, mods
             traducidos y proyectos de la comunidad hispana de stalker.
           </p>
-        </div>
+        </article>
         <Button>
           <span>NOTICIAS RECIENTES</span>
         </Button>
       </div>
       <CharacterImage />
-    </>
+    </section>
   );
 };
