@@ -5,7 +5,7 @@ import { NavbarLinks } from "./NavbarLinks";
 
 export const Navbar = () => {
   return (
-    <div className={`font-bold flex-center md:gap-1 gap-0 xl:flex-row flex-col`}>
+    <div className="font-bold flex-center gap-1 flex-row group">
       <NavbarButton>
         <NavbarLinks />
       </NavbarButton>

@@ -7,11 +7,11 @@ export const NavbarButton = ({ children }: PropsWithChildren) => {
     setisNavBarOpen(!isNavBarOpen);
   };
 
-  const color = isNavBarOpen ? "text-amber-500" : "";
-  const buttonClassNames = `hover:cursor-pointer hover:text-amber-500 xl:text-xl sm:text-lg text-sm ${color}`;
+  const color = isNavBarOpen ? "text-custom-orange" : "";
+  const buttonClassNames = `group-hover:text-custom-orange cursor-pointer xl:text-xl sm:text-lg text-sm ${color}`;
   const navbarArrowProps = {
     strokeWidth: "3",
-    className: `xl:size-8 sm:size-6 size-4 transition-transform duration-500 ${
+    className: `xl:size-7 sm:size-5 size-3 transition-transform duration-500 ${
       isNavBarOpen ? "rotate-180" : "rotate-0"
     }`,
   };
