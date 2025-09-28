@@ -1,4 +1,4 @@
-import { ArrowToLeftIcon } from "@/icons/ArrowToLeftIcon";
+import { AngleToLeftIcon } from "@/icons/AngleToLeftIcon";
 import { PropsWithChildren, useState } from "react";
 
 export const NavbarButton = ({ children }: PropsWithChildren) => {
@@ -35,7 +35,7 @@ export const NavbarButton = ({ children }: PropsWithChildren) => {
         className={`${isNavBarOpen ? "ml-4" : "ml-0"} ${buttonClassNames}`}
       >
         <span className={color}>
-          <ArrowToLeftIcon {...navbarArrowProps} />
+          <AngleToLeftIcon {...navbarArrowProps} />
         </span>
       </button>
     </>
