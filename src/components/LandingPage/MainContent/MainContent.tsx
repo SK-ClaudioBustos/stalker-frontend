@@ -1,5 +1,5 @@
 import { Button } from "@/components/common/Button";
-import { CharacterImage } from "@/components/LandingPage/CharacterImage";
+import { CharacterImage } from "./CharacterImage";
 
 export const MainContent = () => {
   return (

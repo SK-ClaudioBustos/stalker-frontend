@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MercenaryCharacter from "./img/mercenary_character.webp";
+import MercenaryCharacter from "./mercenary_character.webp";
 
 export const CharacterImage = () => {
   return (
