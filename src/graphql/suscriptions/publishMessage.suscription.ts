@@ -5,6 +5,8 @@ subscription PublishMessage($to: String!){
   publishMessage(to: $to) {
    	from
     message
+    dateTime
+    to
   }
 }
 `);
