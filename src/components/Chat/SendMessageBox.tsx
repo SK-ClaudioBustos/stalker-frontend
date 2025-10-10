@@ -1,67 +1,18 @@
-import { useSendMessageMutation } from "@/generated/graphql";
-import { getActualLocaleTime } from "@/utils/getActualLocaleTime";
-import { FormEvent, useRef } from "react";
-import { MessageData } from "./ChatRoom";
+import { useSendMessages } from "@/hooks/useSendMessages";
 
-interface SendMessageBoxProps {
-  userName: string;
-  handleAddMessages: (newMessage: MessageData) => void;
-}
-
-export const SendMessageBox = ({
-  userName,
-  handleAddMessages,
-}: SendMessageBoxProps) => {
-  const [sendMessageMutation, { loading, error }] = useSendMessageMutation();
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const handleSubmitMessage = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Obtengo el mensaje del formulario
-    const formData = new FormData(e.currentTarget);
-    const message = formData.get("message") as string;
-    const to = "cesar";
-    const actualDateTime = new Date();
-    const dateTime = actualDateTime.toString();
-
-    // Envío el mensaje al destinatario
-    sendMessageMutation({
-      variables: {
-        args: {
-          from: userName,
-          message,
-          to,
-          dateTime,
-        },
-      },
-    });
-
-    // Agrego el mensaje enviado al chat
-    const newMessage: MessageData = {
-      from: userName,
-      message,
-      isMessageFromUser: true,
-      time: getActualLocaleTime(dateTime),
-    };
-    handleAddMessages(newMessage);
-
-    // Limpio el formulario
-    if (formRef.current) {
-      formRef.current.reset();
-    }
-  };
+export const SendMessageBox = () => {
+  const { formRef, error, handleSubmitMessage, loading } = useSendMessages();
 
   if (error) {
     return <span className="bg-red-500">ERROR al enviar el mensaje</span>;
   }
 
   return (
-    <div className="w-full self-end justify-center">
+    <section className="p-2 self-end w-full">
       <form
         ref={formRef}
         onSubmit={(e) => handleSubmitMessage(e)}
-        className="flex flex-row gap-1"
+        className="flex flex-row gap-1 w-full"
       >
         <div className="w-[90%]">
           <input
@@ -82,6 +33,6 @@ export const SendMessageBox = ({
           {loading ? "Cargando" : "Enviar"}
         </button>
       </form>
-    </div>
+    </section>
   );
 };

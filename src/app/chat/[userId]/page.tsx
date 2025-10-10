@@ -1,6 +1,7 @@
 "use client";
-import { ChatRoom } from "@/components/Chat/ChatRoom";
+import { ChatView } from "@/components/Chat/ChatView";
 import { ApolloClientProvider } from "@/components/layout/ApolloClientProvider";
+import { ChatProvider } from "@/context/chat.provider";
 import { useParams } from "next/navigation";
 
 export default function ChatPage() {
@@ -8,7 +9,9 @@ export default function ChatPage() {
   const userName = params.userId;
   return (
     <ApolloClientProvider>
-      <ChatRoom userName={userName || "no_id"} />
+      <ChatProvider userName={userName}>
+        <ChatView />
+      </ChatProvider>
     </ApolloClientProvider>
   );
 }

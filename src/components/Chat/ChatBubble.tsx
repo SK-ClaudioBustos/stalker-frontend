@@ -1,7 +1,6 @@
+import { MessageData } from "@/context/chat.provider";
+import { getChatBubbleStyles } from "@/utils/getChatBubbleStyles ";
 import Image from "next/image";
-import Avatar1 from "./img/avatar1.png";
-import Avatar2 from "./img/avatar2.png";
-import { MessageData } from "./ChatRoom";
 
 export const ChatBubble = ({
   from,
@@ -9,21 +8,12 @@ export const ChatBubble = ({
   isMessageFromUser,
   time,
 }: MessageData) => {
-  const bubbleContainerClasses = `flex items-start gap-2.5 mb-4 ${
-    isMessageFromUser ? "justify-[flex-end] flex-row-reverse" : "justify-start"
-  }`;
-  const messageContainerClasses = `flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 
-    ${
-      isMessageFromUser
-        ? "rounded-ee-xl rounded-s-xl"
-        : "rounded-es-xl rounded-e-xl"
-    }
-  dark:bg-gray-700`;
-  const avatarImg = isMessageFromUser ? Avatar1 : Avatar2;
+  const { bubbleContainerClasses, avatarImg, messageContainerClasses } =
+    getChatBubbleStyles(isMessageFromUser);
   return (
     <div className={bubbleContainerClasses}>
       <Image
-        className="w-8 h-8 rounded-full"
+        className="size-8 rounded-full object-cover"
         src={avatarImg}
         alt="User avatar image"
       />

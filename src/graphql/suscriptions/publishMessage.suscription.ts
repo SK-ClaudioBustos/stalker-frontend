@@ -4,9 +4,10 @@ export const publish_message = gql(`
 subscription PublishMessage($to: String!){
   publishMessage(to: $to) {
    	from
-    message
-    dateTime
     to
+    dateTime
+    id
+    message
   }
 }
 `);
