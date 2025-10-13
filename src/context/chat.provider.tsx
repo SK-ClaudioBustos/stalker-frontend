@@ -15,14 +15,14 @@ export type MessageData = {
   time: string;
 };
 
-interface ChatProviderContextProps extends PropsWithChildren {
+export interface ProviderContextProps extends PropsWithChildren {
   userName: string;
 }
 
 export const ChatProvider = ({
   userName,
   children,
-}: ChatProviderContextProps) => {
+}: ProviderContextProps) => {
   const [chatSelected, setChatSelected] = useState<ChatSelectedData>({
     chatId: "no_selected",
     chatUserName: "",

@@ -1,6 +1,6 @@
 import { ChatSelectedData, useChatContext } from "@/context/chat.context";
 import Image from "next/image";
-import { ChatItemData } from "./ChatList";
+import { ChatItemData } from "./UsersList";
 import Avatar2 from "./img/avatar2.png";
 
 export const ChatItem = ({ idChat, userName }: ChatItemData) => {

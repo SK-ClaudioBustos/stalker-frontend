@@ -12,6 +12,9 @@ const httpLink = new HttpLink({
 const wsLink = new GraphQLWsLink(
   createClient({
     url: process.env.NEXT_PUBLIC_WS_URL || "",
+    connectionParams: () => ({
+      Authorization: localStorage.getItem("token"),
+    }),
   })
 );
 const splitLink = split(
