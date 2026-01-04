@@ -1,8 +1,8 @@
 import { AppProvider } from "@/components/layout/AppProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ReactNode } from "react";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
 
 const fontFamily = Inter({
   subsets: ["latin"],
@@ -16,12 +16,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="es">
       <body className={fontFamily.className}>
-        <Header/>
         <AppProvider>{children}</AppProvider>
       </body>
     </html>

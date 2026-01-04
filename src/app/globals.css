@@ -3,21 +3,3 @@
 .flex-center {
   @apply flex justify-center items-center;
 }
-
-.main-padding {
-  @apply py-16 2xl:px-40 xl:px-30 md:px-20 sm:px-15 px-5;
-}
-
-.screen-responsive-max-width {
-  max-width: 1920px;
-  margin: auto;
-}
-
-@theme {
-  --color-custom-orange: #ffae52;
-}
-
-body {
-  background-color: #fff;
-  color: #727272;
-}
