@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --background-image-portada: url('/images/header_background.png');
+}
+
 .flex-center {
   @apply flex justify-center items-center;
 }
